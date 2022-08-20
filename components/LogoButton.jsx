@@ -1,5 +1,6 @@
-import React from "react";
-import styled from "styled-components/native";
+import React from 'react';
+import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
 
 const ButtonImage = styled.Image`
   width: 80px;
@@ -19,6 +20,11 @@ const LogoButton = ({ img, title }) => {
       <ButtonImage source={img} title={title} />
     </ButtonContainer>
   );
+};
+
+LogoButton.propTypes = {
+  img: PropTypes.any,
+  title: PropTypes.string,
 };
 
 export default LogoButton;
