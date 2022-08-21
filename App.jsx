@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { Image } from 'react-native';
+import { Image, ActivityIndicator } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from './redux/store';
@@ -36,7 +36,7 @@ export default function App() {
         const fonts = [Ionicons.font];
         const imagePromises = cacheImages(images);
         const fontPromises = cacheFonts(fonts);
-        Promise.all([...fontPromises, ...imagePromises]);
+        return Promise.all([...fontPromises, ...imagePromises]);
       } catch (e) {
         console.warn(e);
       } finally {
@@ -52,5 +52,7 @@ export default function App() {
         <Gate />
       </PersistGate>
     </Provider>
-  ) : null;
+  ) : (
+    <ActivityIndicator />
+  );
 }

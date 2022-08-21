@@ -3,41 +3,56 @@ import { createSlice } from '@reduxjs/toolkit';
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
-    explore: {
+    search: {
       page: 1,
       products: [],
+      searchOptions: [],
     },
-    userLike: [],
+    likes: 0,
   },
   reducers: {
-    setExplorePage(state, action) {
+    setSearchPage(state, action) {
       const { payload } = action;
-      state.explore.products = payload.products;
+      state.search.products = payload.products;
       if (payload.page === 1) {
-        state.explore.page = 1;
+        state.search.page = 1;
       }
     },
     increasePage(state, action) {
-      state.explore.page += 1;
+      state.search.page += 1;
     },
-    setUserLike(state, action) {
+    setProductLikes(state, action) {
       const {
         payload: { productId },
       } = action;
-      const product = state.explore.rooms.find((product) => product.id === productId);
+      const product = state.search.products.find((product) => product.id === productId);
       if (product) {
-        if (product.is_like) {
-          product.is_like = false;
-          state.userLike = state.userLike.filter((product) => product.id !== productId);
+        if (product.isLike) {
+          product.isLike = false;
+          state.likes -= 1;
         } else {
-          product.is_like = true;
-          state.userLike.push(product);
+          product.isLike = true;
+          state.likes += 1;
         }
+      }
+    },
+    setSearchOptions(state, action) {
+      const { payload } = action;
+      const searchOption = state.search.searchOptions.find(
+        (searchOption) => searchOption === payload,
+      );
+      if (searchOption) {
+        state.search.searchOptions = state.search.searchOptions.filter(
+          (searchOption) => searchOption !== payload,
+        );
+      } else {
+        state.search.searchOptions = [...state.search.searchOptions, ...payload];
       }
     },
   },
 });
 
-export const { setExplorePage, increasePage, setUserLike } = productsSlice.actions;
+export const { setSearchPage, increasePage, setProductLikes, setSearchOptions } =
+  productsSlice.actions;
 
 export default productsSlice.reducer;
