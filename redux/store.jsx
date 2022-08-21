@@ -13,9 +13,10 @@ import rootReducer from './rootReducer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const persistConfig = {
-  version: 1.0,
+  version: 1.1,
   key: 'root',
   storage: AsyncStorage,
+  whitelist: [rootReducer],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -28,6 +29,7 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 export const persistor = persistStore(store);
