@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Text } from 'react-native';
 import styled from 'styled-components/native';
 import LogoBtn from '../../components/LogoBtn';
 import conv from '../../conv';
@@ -9,12 +10,6 @@ const Container = styled.View`
   background-color: #fff;
   align-items: center;
   justify-content: flex-start;
-`;
-const MainLogo = styled.Image`
-  width: 170px;
-  height: 50px;
-  margin-top: 50px;
-  margin-bottom: 30px;
 `;
 const SearchBtnContainer = styled.View`
   flex-direction: row;
@@ -35,10 +30,10 @@ const SearchBar = styled.TextInput`
   padding: 5px;
 `;
 
-const HomeScreen = () => {
+const Search = () => {
+  const [searchText, setSearchText] = useState('');
   return (
     <Container>
-      <MainLogo source={require('../../assets/logo.png')} />
       <SearchBtnContainer>
         <LogoBtn source={require('../../assets/seven_eleven.png')} searchOption={conv.seven} />
         <LogoBtn source={require('../../assets/gs25.png')} searchOption={conv.gs} />
@@ -46,10 +41,16 @@ const HomeScreen = () => {
         <LogoBtn source={require('../../assets/cu.png')} searchOption={conv.cu} />
       </SearchBtnContainer>
       <SearchBarContainer>
-        <SearchBar placeholder="검색어를 입력하세요" />
+        <SearchBar
+          placeholder="검색어를 입력하세요"
+          Value={searchText}
+          onChangeText={(value) => setSearchText(value)}
+          maxLength={40}
+        />
       </SearchBarContainer>
+      <Text>이제 시작...</Text>
     </Container>
   );
 };
 
-export default HomeScreen;
+export default Search;
