@@ -53,6 +53,6 @@ export default function App() {
       </PersistGate>
     </Provider>
   ) : (
-    <ActivityIndicator />
+    <ActivityIndicator color="blue" />
   );
 }
