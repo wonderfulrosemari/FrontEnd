@@ -27,5 +27,10 @@
   "plugins": ["react", "prettier"],
 
   // prettier 코드 스타일이 어긋나면 eslint에 걸리도록 처리
-  "rules": { "prettier/prettier": "error" }
+  "rules": {
+    "prettier/prettier": "error",
+    "rules": {
+      "no-control-regex": 0
+    }
+  }
 }
