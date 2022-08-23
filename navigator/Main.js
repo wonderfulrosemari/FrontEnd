@@ -14,6 +14,7 @@ import utils from '../utils';
 const TabsNavigator = createBottomTabNavigator();
 const Tabs = () => (
   <TabsNavigator.Navigator
+    initialRouteName="Home"
     screenOptions={({ route }) => ({
       headerShown: false,
       activeTintColor: '#0096FF',
