@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
-import LogoBtn from '../../components/LogoBtn';
-import conv from '../../conv';
+import LogoBtn from '../../../components/LogoBtn';
+import conv from '../../../conv';
 
 const Container = styled.View`
   height: 100%;
@@ -30,15 +30,15 @@ const SearchBar = styled.TextInput`
   padding: 5px;
 `;
 
-const Search = () => {
+const Search = ({ searchOptions }) => {
   const [searchText, setSearchText] = useState('');
   return (
     <Container>
       <SearchBtnContainer>
-        <LogoBtn source={require('../../assets/seven_eleven.png')} searchOption={conv.seven} />
-        <LogoBtn source={require('../../assets/gs25.png')} searchOption={conv.gs} />
-        <LogoBtn source={require('../../assets/emart24.png')} searchOption={conv.emart} />
-        <LogoBtn source={require('../../assets/cu.png')} searchOption={conv.cu} />
+        <LogoBtn source={require('../../../assets/seven_eleven.png')} searchOption={conv.seven} />
+        <LogoBtn source={require('../../../assets/gs25.png')} searchOption={conv.gs} />
+        <LogoBtn source={require('../../../assets/emart24.png')} searchOption={conv.emart} />
+        <LogoBtn source={require('../../../assets/cu.png')} searchOption={conv.cu} />
       </SearchBtnContainer>
       <SearchBarContainer>
         <SearchBar

@@ -1,3 +1,4 @@
+import 'expo-dev-client';
 import React, { useState, useEffect } from 'react';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';

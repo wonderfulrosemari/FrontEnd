@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import styled from 'styled-components/native';
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import utils from '../../utils';
 
 const Container = styled.View`
@@ -42,9 +42,6 @@ const Home = () => {
     <Container>
       <HeadContainer>
         <SearchContainer>
-          <SearchPressable onPress={() => navigation.navigate('Search')}>
-            <FontAwesome5 name="user" size={30} color="black" />
-          </SearchPressable>
           <SearchPressable onPress={() => navigation.navigate('Search')}>
             <Ionicons
               name={utils.isAndroid() ? 'md-search' : 'ios-search'}
