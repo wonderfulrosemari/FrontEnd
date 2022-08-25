@@ -37,13 +37,13 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.18.13",
     "@types/styled-components": "^5.1.26",
     "babel-preset-expo": "^9.2.0",
     "eslint": "^8.22.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.1",

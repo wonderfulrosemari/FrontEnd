@@ -18,6 +18,8 @@ const persistConfig = {
   storage: AsyncStorage,
 };
 
+AsyncStorage.removeItem('persist:root');
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({

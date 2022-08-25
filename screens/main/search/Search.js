@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text } from 'react-native';
+import { useSelector, useStore } from 'react-redux';
 import styled from 'styled-components/native';
 import LogoBtn from '../../../components/LogoBtn';
 import conv from '../../../conv';
@@ -31,7 +32,9 @@ const SearchBar = styled.TextInput`
   padding: 5px;
 `;
 
-const Search = ({ searchOptions }) => {
+const Search = () => {
+  const a = useSelector((state) => state.products.search);
+  console.log(a);
   const [searchText, setSearchText] = useState('');
   return (
     <Container>

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const productsSlice = createSlice({
+const productSlice = createSlice({
   name: 'products',
   initialState: {
     search: {
@@ -46,13 +46,13 @@ const productsSlice = createSlice({
           (searchOption) => searchOption !== payload,
         );
       } else {
-        state.search.searchOptions = [...state.search.searchOptions, ...payload];
+        state.search.searchOptions.push(payload);
       }
     },
   },
 });
 
 export const { setSearchPage, increasePage, setProductLikes, setSearchOptions } =
-  productsSlice.actions;
+  productSlice.actions;
 
-export default productsSlice.reducer;
+export default productSlice.reducer;
