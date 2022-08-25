@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -20,9 +20,14 @@ const ButtonImage = styled.Image`
 `;
 
 const LogoBtn = ({ source, searchOption }) => {
-  const dispatch = useDispatch();
+  const toggle = (searchOption) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(setSearchOptions(searchOption));
+    }, [isEnabled]);
+  };
   const [isEnabled, setIsEnabled] = useState(true);
-  dispatch(setSearchOptions(searchOption));
+  toggle(searchOption);
   return (
     <ButtonContainer>
       <Button onPress={() => setIsEnabled(!isEnabled)}>

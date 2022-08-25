@@ -5,8 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import utils from '../../utils';
 
 const Container = styled.View`
-  height: 100%;
-  width: 100%;
+  flex: 1
   background-color: #fff;
   align-items: center;
   justify-content: flex-start;
